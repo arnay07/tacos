@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-TacosApplication<tacos>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "tacos.TacosApplication",
+      "projectName": "tacos",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
