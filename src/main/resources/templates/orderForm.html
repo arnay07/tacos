@@ -22,7 +22,6 @@
 
       <div id="flex-container">
         <div class="flex-item">
-          <a id="another" th:href="@{/design}">Design another taco</a> <br />
           <h3>Your tacos in this order :</h3>
           <ul>
             <li th:each="taco : ${tacoOrder.tacos}">
@@ -115,7 +114,7 @@
             ERROR
           </span>
           <br />
-          <input type="submit" value="Submit Order" />
+          <input class="submit" type="submit" value="Submit Order" />
         </div>
       </div>
     </form>

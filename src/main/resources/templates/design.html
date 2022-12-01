@@ -99,12 +99,29 @@
           </div>
         </div>
       </div>
-      <h3>Name your taco creation:</h3>
-      <label>
+      <div>
+        <h3>Name your taco creation</h3>
+        <label>Tacos name: </label>
         <input th:field="*{name}" type="text" />
-      </label>
-      <br />
-      <button>Submit Your Taco</button>
+        <div>
+          <span
+            class="validationError"
+            th:if="${#fields.hasErrors('name')}"
+            th:errors="*{name}"
+          >
+            ERROR
+          </span>
+          <br />
+          <span
+            class="validationError"
+            th:if="${#fields.hasErrors('ingredients')}"
+            th:errors="*{ingredients}"
+          >
+            ERROR
+          </span>
+        </div>
+        <input class="submit" type="submit" value="Submit Your Taco" />
+      </div>
     </form>
   </body>
 </html>
