@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.validation.constraints.Digits;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 import org.hibernate.validator.constraints.CreditCardNumber;
@@ -23,6 +24,7 @@ public class TacoOrder implements Serializable {
     private String deliveryName;
 
     @NotBlank(message = "Street is required")
+    @Max(value = 50, message = "Street must be less than 50 characters")
     private String deliveryStreet;
 
     @NotBlank(message = "City is required")
