@@ -11,9 +11,9 @@ import tacos.data.IngredientRepository;
 import tacos.Taco;
 import tacos.TacoOrder;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.stream.Collectors;
-import javax.validation.Valid;
 
 
 @Slf4j
@@ -22,15 +22,15 @@ import javax.validation.Valid;
 @SessionAttributes("tacoOrder")
 public class DesignTacoController {
 
-    private final IngredientRepository ingredientRepo;
+    private final IngredientRepository ingredientRepository;
 
-    public DesignTacoController(IngredientRepository ingredientRepo) {
-        this.ingredientRepo = ingredientRepo;
+    public DesignTacoController(IngredientRepository ingredientRepository) {
+        this.ingredientRepository = ingredientRepository;
     }
 
     @ModelAttribute
     public void addIngredientsToModel(Model model) {
-        List<Ingredient> ingredients = (List<Ingredient>) ingredientRepo.findAll();
+        List<Ingredient> ingredients = (List<Ingredient>) ingredientRepository.findAll();
 
         Type[] types = Ingredient.Type.values();
         for (Type type : types) {
