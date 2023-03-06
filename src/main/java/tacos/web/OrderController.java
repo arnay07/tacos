@@ -1,7 +1,6 @@
 package tacos.web;
 
 import lombok.extern.slf4j.Slf4j;
-import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +11,8 @@ import org.springframework.web.bind.support.SessionStatus;
 import tacos.TacoOrder;
 import tacos.data.OrderRepository;
 
+import jakarta.validation.Valid;
+
 
 @Slf4j
 @Controller
@@ -19,7 +20,7 @@ import tacos.data.OrderRepository;
 @SessionAttributes("tacoOrder")
 public class OrderController {
 
-    private OrderRepository orderRepo;
+    private final OrderRepository orderRepo;
 
     public OrderController(OrderRepository orderRepo) {
         this.orderRepo = orderRepo;

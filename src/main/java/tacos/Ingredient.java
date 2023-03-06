@@ -1,17 +1,19 @@
 package tacos;
 
-import javax.persistence.Entity;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.AccessLevel;
-import javax.persistence.Id;
+import lombok.*;
+import org.hibernate.Hibernate;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import java.util.Objects;
 
 
-@Data
+@Getter
+@Setter
+@ToString
+@RequiredArgsConstructor
 @Entity
 @AllArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 public class Ingredient {
 
     @Id
@@ -21,8 +23,22 @@ public class Ingredient {
 
     private Type type;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o)
+            return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o))
+            return false;
+        Ingredient that = (Ingredient) o;
+        return id != null && Objects.equals(id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return getClass().hashCode();
+    }
+
     public enum Type {
         WRAP, PROTEIN, VEGGIES, CHEESE, SAUCE
     }
-
 }
